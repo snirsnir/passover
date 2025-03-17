@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טכנודע חדרה - מסע במנהרת הזמן - הפנינג פסח 2025</title>
+    <style>
+        :root {
+            --primary-color: #1e88e5;
+            --secondary-color: #ff9800;
+            --accent-color: #8bc34a;
+            --dark-color: #333;
+            --light-color: #f9f9f9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2196f3, #673ab7);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .event-date {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .hero {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .hero p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Activities Section */
+        .activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .activity-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .activity-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .activity-card p {
+            margin-bottom: 1rem;
+        }
+        
+        .activity-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Info Section */
+        .info-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .info-icon {
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .info-text h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Extra Activities */
+        .extra-activities {
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .extra-activities h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .extra-list {
+            list-style-type: none;
+        }
+        
+        .extra-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .extra-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-left: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            background-color: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+        }
+        
+        .btn-large {
+            font-size: 1.3rem;
+            padding: 1.2rem 2.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact-info {
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            color: white;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .activities {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .activity-card, .info-section, .extra-activities {
+                padding: 1.2rem;
+            }
+            
+            .btn-large {
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            h1 {
+                font-size: 1.7rem;
+            }
+            
+            .activity-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-section p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Floating Button for Mobile */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .floating-btn {
+                display: block;
+            }
+        }
+        
+        /* Animation for Scroll */
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .scroll-animation.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom Counter */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Time travel theme elements */
+        .time-portal {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            filter: blur(5px);
+            animation: pulse 4s infinite alternate;
+            z-index: 0;
+        }
+        
+        .portal-1 {
+            top: 10%;
+            left: 5%;
+        }
+        
+        .portal-2 {
+            bottom: 10%;
+            right: 5%;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.4; }
+            100% { transform: scale(1.3); opacity: 0.8; }
+        }
+        
+        .time-line {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .time-line::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            background-color: var(--primary-color);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+        
+        .time-event {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .time-event::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            left: -8px;
+            top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .time-line::before {
+                left: 20px;
+            }
+            
+            .time-event {
+                padding-left: 3rem;
+            }
+            
+            .time-event::before {
+                left: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="time-portal portal-1"></div>
+        <div class="time-portal portal-2"></div>
+        <div class="container">
+            <div class="header-content">
+                <h1>טכנודע חדרה לוקח אתכם למסע במנהרת הזמן</h1>
+                <div class="event-date">חגיגת פסח 2025 • 14-17 באפריל • 09:00-16:00</div>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">ימים</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">שעות</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">דקות</div>
+                    </div>
+                </div>
+                <a href="https://web.attractinet.co.il/TechnoDa/?jumpTo=Purches&lang=he" class="btn btn-large">לרכישת כרטיסים עכשיו</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="hero scroll-animation">
+                <h2>המוזיאון הישראלי לרפואה, חלל ומדע מזמין את כל ילדי ישראל</h2>
+                <p><strong>בחול המועד פסח, יוכלו הילדים לחוות מסע בלתי נשכח דרך מנהרת הזמן, שם יפגשו את המדענים הגדולים בהיסטוריה ויגלו את ההמצאות ששינו את עולמנו.</strong> בתוכנית מגוון סדנאות הכוללות התנסויות מדעיות מעשיות, מולטימדיה מרתקת ומשחקי מחשב ורצפה נוסטלגיים.</p>
+                <a href="https://web.attractinet.co.il/TechnoDa/?jumpTo=Purches&lang=he" class="btn">לרכישת כרטיסים</a>
+            </section>
+
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">הפעילויות שלנו</h2>
+            
+            <section class="activities">
+                <div class="activity-card scroll-animation">
+                    <div class="activity-icon">📜</div>
+                    <h3>סדנת כתב</h3>
+                    <p>איך כתבו והעבירו מסרים מהעת העתיקה ועד ימינו? בואו לגלות את התפתחות הכתב לאורך ההיסטוריה!</p>
+                </div>
+                
+                <div class="activity-card scroll-animation">
+                    <div class="activity-icon">🔬</div>
+                    <h3>התפתחות המיקרוסקופ</h3>
+                    <p>מעקב אחר התפתחות כלי חיוני בעולם המדע שמשמש את חוקרי המדע והרפואה מאז ועד היום.</p>
+                </div>
+                
+                <div class="activity-card scroll-animation">
+                    <div class="activity-icon">🎮</div>
+                    <h3>משחקי מחשב של פעם ושל היום</h3>
+                    <p>חוויית גיימינג נוסטלגית ומלהיבה שתאפשר לכם להכיר את התפתחות משחקי המחשב לאורך השנים.</p>
+                </div>
+                
+                <div class="activity-card scroll-animation">
+                    <div class="activity-icon">🧪</div>
+                    <h3>פארק המדע ומוזיאון המדע</h3>
+                    <p>גלו את הפיזיקה שמאחורי בורג ארכימדס, צלחות הקול הענקיות והפרחים הסולאריים.</p>
+                </div>
+                
+                <div class="activity-card scroll-animation">
+                    <div class="activity-icon">🎯</div>
+                    <h3>משחקי רצפה של פעם</h3>
+                    <p>התנסות במשחקי ילדות נוסטלגיים שכולם אוהבים ומכירים מימים עברו.</p>
+                </div>
+                
+                <div class="activity-card scroll-animation">
+                    <div class="activity-icon">💡</div>
+                    <h3>דיאלוג בזמן עם הממציאים הגדולים</h3>
+                    <p>סדנה הכוללת הדגמות מרתקות וחידון אינטראקטיבי עם הדמויות שעיצבו את עולם המדע.</p>
+                </div>
+            </section>
+
+            <section class="info-section scroll-animation">
+                <h2>מידע חשוב</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">📅</div>
+                        <div class="info-text">
+                            <h3>תאריכים</h3>
+                            <p>14-17 באפריל 2025 (חול המועד פסח, ב'-ה')</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-text">
+                            <h3>שעות פעילות</h3>
+                            <p>09:00-16:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">⏱️</div>
+                        <div class="info-text">
+                            <h3>משך הפעילות</h3>
+                            <p>כ-4 שעות</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">💰</div>
+                        <div class="info-text">
+                            <h3>מחיר</h3>
+                            <p>70 ₪ לילד, 35 ₪ למבוגר</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h3>כתובת</h3>
+                            <p>רח' הרב ניסים 2, גבעת אולגה, חדרה</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-text">
+                            <h3>טלפון</h3>
+                            <p>04-6333505</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="extra-activities scroll-animation">
+                <h2>פעילויות נוספות במהלך הביקור</h2>
+                <ul class="extra-list">
+                    <li class="extra-item">
+                        <div class="extra-icon">🌠</div>
+                        <div>
+                            <strong>מופע פלנטריום מרתק + כניסה למצפה הכוכבים</strong>
+                            <p>טלסקופים, כוכבים וסודות היקום! – 35 ₪ למשתתף.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="extra-item">
+                        <div class="extra-icon">❤️</div>
+                        <div>
+                            <strong>כניסה למוזיאון הרפואה</strong>
+                            <p>מסלול המוח או מסלול הלב – 70 ₪ למשתתף.</p>
+                        </div>
+                    </li>
+                    
+                    <li class="extra-item">
+                        <div class="extra-icon">☀️</div>
+                        <div>
+                            <strong>תערוכה לקטנטנים (גילאי 3-7)</strong>
+                            <p>"המסע אל השמש"! מחיר הורה וילד 100 ₪ יחד.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="cta-section scroll-animation">
+                <h2>הצטרפו אלינו למסע במנהרת הזמן!</h2>
+                <p>חוויה בלתי נשכחת לכל המשפחה, שתשלב למידה משמעותית עם כיף והנאה בחול המועד פסח.</p>
+                <a href="https://web.attractinet.co.il/TechnoDa/?jumpTo=Purches&lang=he" class="btn btn-large">לרכישת כרטיסים עכשיו</a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <p>טכנודע חדרה - המוזיאון הישראלי לרפואה, חלל ומדע</p>
+                    <p>רח' הרב ניסים 2, גבעת אולגה, חדרה</p>
+                    <p>טלפון: 04-6333505</p>
+                    <p><a href="http://technoda.org.il/" style="color: var(--secondary-color); text-decoration: none;">technoda.org.il</a></p>
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">📱</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">📘</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-btn">
+        <a href="https://web.attractinet.co.il/TechnoDa/?jumpTo=Purches&lang=he" class="btn">לרכישת כרטיסים</a>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('April 14, 2025 09:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = eventDate - now;
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+        
+        // Scroll Animation
+        function checkScrollAnimation() {
+            const elements = document.querySelectorAll('.scroll-animation');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 50) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkScrollAnimation);
+        window.addEventListener('load', checkScrollAnimation);
+        
+        // Image Initialization (placeholder for actual implementation)
+        window.addEventListener('load', function() {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach(img => {
+                img.src = img.getAttribute('data-src');
+                img.removeAttribute('data-src');
+            });
+        });
+    </script>
+</body>
+</html>
