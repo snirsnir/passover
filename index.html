@@ -33,11 +33,11 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Header Styles - Reduced size */
         header {
             background: linear-gradient(135deg, #2196f3, #673ab7);
             color: white;
-            padding: 1rem 0;
+            padding: 0.5rem 0; /* Reduced padding */
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
@@ -61,26 +61,84 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem; /* Reduced padding */
         }
         
         .logo {
             max-width: 150px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem; /* Reduced margin */
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem; /* Slightly smaller */
+            margin-bottom: 0.5rem; /* Reduced margin */
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .event-date {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.15rem; /* Slightly smaller */
+            margin-bottom: 1rem; /* Reduced margin */
             font-weight: bold;
             color: var(--secondary-color);
+        }
+        
+        /* Smaller Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem; /* Reduced gap */
+            margin: 1rem 0; /* Reduced margin */
+        }
+        
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.7rem; /* Reduced padding */
+            border-radius: 8px;
+            min-width: 70px; /* Smaller width */
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-size: 1.6rem; /* Smaller font */
+            font-weight: bold;
+            color: white;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem; /* Smaller font */
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Scroll Arrow - New Feature */
+        .scroll-arrow-container {
+            position: fixed;
+            right: 8%;
+            top: 30%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.5s ease;
+        }
+        
+        .scroll-arrow {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            animation: pulse-arrow 1.5s infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        @keyframes pulse-arrow {
+            0% { opacity: 0.5; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(10px); }
+            100% { opacity: 0.5; transform: translateY(0); }
         }
         
         /* Main Content */
@@ -249,7 +307,7 @@
             display: inline-block;
             background-color: var(--secondary-color);
             color: white;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem; /* Smaller button in header */
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
@@ -257,7 +315,7 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Smaller font */
             box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
         
@@ -319,7 +377,7 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem; /* Even smaller on mobile */
             }
             
             .activities {
@@ -338,15 +396,20 @@
                 font-size: 1.1rem;
                 padding: 1rem 2rem;
             }
+            
+            .scroll-arrow-container {
+                right: 10px; /* מיקום בצד ימין במובייל */
+                left: auto; /* ביטול המיקום שמאלי במידה וקיים */
+            }
         }
         
         @media (max-width: 480px) {
             .header-content {
-                padding: 1.5rem 0.5rem;
+                padding: 1rem 0.5rem; /* Even smaller on small mobile */
             }
             
             h1 {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
             
             .activity-card h3 {
@@ -363,11 +426,18 @@
             
             .btn {
                 padding: 0.8rem 1.5rem;
-                font-size: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 0.5rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.4rem;
             }
         }
-        
-        /* Floating Button for Mobile - הוסר לפי בקשה */
         
         /* Animation for Scroll */
         .scroll-animation {
@@ -381,33 +451,6 @@
             transform: translateY(0);
         }
         
-        /* Custom Counter */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .countdown-item {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 1rem;
-            border-radius: 8px;
-            min-width: 80px;
-            text-align: center;
-        }
-        
-        .countdown-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .countdown-label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
         /* Time travel theme elements */
         .time-portal {
             position: absolute;
@@ -505,10 +548,15 @@
                         <div class="countdown-label">דקות</div>
                     </div>
                 </div>
-                <a href="https://web.attractinet.co.il/TechnoDa/?jumpTo=Purches&lang=he" target="_blank" rel="noopener noreferrer" class="btn btn-large">לרכישת כרטיסים עכשיו</a>
+                <a href="https://web.attractinet.co.il/TechnoDa/?jumpTo=Purches&lang=he" target="_blank" rel="noopener noreferrer" class="btn">לרכישת כרטיסים עכשיו</a>
             </div>
         </div>
     </header>
+
+    <!-- Scroll Arrow - New Feature -->
+    <div class="scroll-arrow-container" id="scrollArrow">
+        <div class="scroll-arrow">↓</div>
+    </div>
 
     <main class="main-content">
         <div class="container">
@@ -666,8 +714,6 @@
         </div>
     </footer>
 
-    <!-- הכפתור הצף הוסר לפי בקשה -->
-
     <script>
         // Countdown Timer
         function updateCountdown() {
@@ -704,13 +750,93 @@
         window.addEventListener('scroll', checkScrollAnimation);
         window.addEventListener('load', checkScrollAnimation);
         
-        // Image Initialization (placeholder for actual implementation)
+        // Image Initialization
         window.addEventListener('load', function() {
             const images = document.querySelectorAll('img[data-src]');
             images.forEach(img => {
                 img.src = img.getAttribute('data-src');
                 img.removeAttribute('data-src');
             });
+        });
+        
+        // Scroll Arrow Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollArrow = document.getElementById('scrollArrow');
+            const scrollArrowIcon = scrollArrow.querySelector('.scroll-arrow');
+            let isAtBottom = false;
+            
+            // Function to check if user has scrolled to bottom
+            function checkScrollPosition() {
+                const scrollPosition = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // Check if we're at the bottom
+                if (scrollPosition + windowHeight >= documentHeight - 50) {
+                    if (!isAtBottom) {
+                        // Change arrow to point up
+                        scrollArrowIcon.innerHTML = '↑';
+                        scrollArrowIcon.style.animation = 'pulse-arrow 1.5s infinite';
+                        isAtBottom = true;
+                    }
+                } else {
+                    if (isAtBottom) {
+                        // Change arrow to point down
+                        scrollArrowIcon.innerHTML = '↓';
+                        scrollArrowIcon.style.animation = 'pulse-arrow 1.5s infinite';
+                        isAtBottom = false;
+                    }
+                }
+                
+                // Hide arrow if at the very top and arrow points up
+                if (scrollPosition === 0 && isAtBottom) {
+                    scrollArrow.style.display = 'none';
+                } else {
+                    scrollArrow.style.display = 'flex';
+                }
+            }
+            
+            // Check scroll position on scroll
+            window.addEventListener('scroll', checkScrollPosition);
+            
+            // Initial check
+            checkScrollPosition();
+            
+            // Add click functionality to the arrow
+            scrollArrow.addEventListener('click', function() {
+                if (isAtBottom) {
+                    // If we're showing the up arrow, scroll to top
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // If we're showing the down arrow, scroll down one page
+                    window.scrollBy({
+                        top: window.innerHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+            
+            // Hide arrow after 5 seconds of inactivity, show on scroll
+            let hideTimeout;
+            
+            function resetHideTimeout() {
+                clearTimeout(hideTimeout);
+                scrollArrow.style.opacity = '1';
+                
+                hideTimeout = setTimeout(function() {
+                    scrollArrow.style.opacity = '0.3';
+                }, 5000);
+            }
+            
+            // Show on scroll or mouse movement
+            window.addEventListener('scroll', resetHideTimeout);
+            window.addEventListener('mousemove', resetHideTimeout);
+            
+            // Initial setting
+            resetHideTimeout();
         });
     </script>
 </body>
